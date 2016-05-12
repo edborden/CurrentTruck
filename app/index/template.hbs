@@ -1,7 +1,9 @@
-{{#leaflet-map zoomControl=false attributionControl=false lat=40.6943221 lng=-73.93338199999999 zoom=11}}
+{{#leaflet-map attributionControl=false lat=32.707003 lng=-117.155778 zoom=13}}
   {{tile-layer url='https://{s}.tiles.mapbox.com/v3/edborden.i7622aec/{z}/{x}/{y}.png'}}
   {{#each model as |location|}}
-    {{location-marker lat=location.lat lng=location.lng pedestriansCount=location.pedestrians_count}}
+    {{#location-marker lat=location.lat lng=location.lng pedestriansCount=location.pedestrians_count}}
+      {{location.pedestrians_count}}
+    {{/location-marker}}
     {{circle-layer radius=30 lat=location.lat lng=location.lng}}
   {{/each}}
 {{/leaflet-map}}

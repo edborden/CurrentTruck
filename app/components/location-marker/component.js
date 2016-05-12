@@ -1,4 +1,5 @@
 import MarkerLayer from 'current-truck/components/marker-layer';
+import observes from 'ember-computed-decorators';
 
 const EventMarker = L.Icon.extend({
 
@@ -35,6 +36,12 @@ export default MarkerLayer.extend({
     let pedestriansCount = this.get('pedestriansCount');
     let icon = new EventMarker({ pedestriansCount });
     this.set('icon', icon);
+  },
+
+  @observes('pedestriansCount')
+  pedestriansCountDidChange() {
+    console.log('change');
+    this.element.innerHTML = this.get('pedestriansCount');
   },
 
   didCreateLayer() {
