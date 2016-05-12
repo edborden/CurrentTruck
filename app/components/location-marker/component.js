@@ -15,6 +15,7 @@ const EventMarker = L.Icon.extend({
     let div = document.createElement('div');
     div.className = 'location-marker';
     div.innerHTML = this._createInner();
+    this.element = div;
     return div;
   },
 
@@ -38,11 +39,12 @@ export default MarkerLayer.extend({
     this.set('icon', icon);
   },
 
-  @observes('pedestriansCount')
-  pedestriansCountDidChange() {
+  pedestriansCountDidChange: Ember.observer('pedestriansCount', function() {
     console.log('change');
-    this.element.innerHTML = this.get('pedestriansCount');
-  },
+    console.log(this.get('icon').element);
+    this.get('icon').element.innerHTML = this.get('pedestriansCount');
+    console.log(this.get('icon').element);
+  }),
 
   didCreateLayer() {
     // this._super(...arguments);
