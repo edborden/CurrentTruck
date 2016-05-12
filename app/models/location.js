@@ -13,7 +13,11 @@ export default Model.extend({
   lng: attr('number'),
   pedestrians_count: attr('number'),
   spots_count: attr('number'),
-  score: attr('number'),
+
+  @computed('pedestrians_count', 'spots_count')
+  score() {
+    return this.get('pedestrians_count') * this.get('spots_count');
+  },
 
   @computed('score')
   needsVendor() {
