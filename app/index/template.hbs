@@ -2,9 +2,9 @@
   {{tile-layer url='https://{s}.tiles.mapbox.com/v3/edborden.i7622aec/{z}/{x}/{y}.png'}}
   {{#each model as |location|}}
     {{#unless location.needsVendor}}
-      {{location-marker lat=location.lat lng=location.lng pedestriansCount=location.pedestrians_count spotsCount=location.spots_count}}
+      {{location-marker lat=location.lat lng=location.lng pedestriansCount=location.pedestriansFixed spotsCount=location.spotsFixed}}
     {{else}}
-      {{#red-marker lat=location.lat lng=location.lng pedestriansCount=location.pedestrians_count spotsCount=location.spots_count}}
+      {{#red-marker lat=location.lat lng=location.lng pedestriansCount=location.pedestriansFixed spotsCount=location.spotsFixed}}
         {{blast-button location=location}}
       {{/red-marker}}      
     {{/unless}}
