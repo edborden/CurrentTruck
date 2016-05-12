@@ -1,9 +1,13 @@
 {{#leaflet-map attributionControl=false lat=32.707003 lng=-117.155778 zoom=13}}
   {{tile-layer url='https://{s}.tiles.mapbox.com/v3/edborden.i7622aec/{z}/{x}/{y}.png'}}
   {{#each model as |location|}}
-    {{#location-marker lat=location.lat lng=location.lng pedestriansCount=location.pedestrians_count spotsCount=location.spots_count}}
-      <button class="btn btn-xs">Test</button>
-    {{/location-marker}}
+    {{#unless location.needsVendor}}
+      {{location-marker lat=location.lat lng=location.lng pedestriansCount=location.pedestrians_count spotsCount=location.spots_count}}
+    {{else}}
+      {{#red-marker lat=location.lat lng=location.lng pedestriansCount=location.pedestrians_count spotsCount=location.spots_count}}
+        {{blast-button location=location}}
+      {{/red-marker}}      
+    {{/unless}}
     {{circle-layer radius=30 lat=location.lat lng=location.lng}}
   {{/each}}
 {{/leaflet-map}}
