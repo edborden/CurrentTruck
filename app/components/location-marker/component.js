@@ -20,7 +20,7 @@ const EventMarker = L.Icon.extend({
   },
 
   _createInner() {
-    return this.options.pedestriansCount;
+    return `${this.options.pedestriansCount}/${this.options.spotsCount}`;
   }
 
 });
@@ -30,20 +30,21 @@ export default MarkerLayer.extend({
   // attributes
   icon: null,
   pedestriansCount: null,
+  spotsCount: null,
 
   // events
   init() {
     this._super();
     let pedestriansCount = this.get('pedestriansCount');
-    let icon = new EventMarker({ pedestriansCount });
+    let spotsCount = this.get('spotsCount');
+    let icon = new EventMarker({ pedestriansCount, spotsCount });
     this.set('icon', icon);
   },
 
-  pedestriansCountDidChange: Ember.observer('pedestriansCount', function() {
-    console.log('change');
-    console.log(this.get('icon').element);
-    this.get('icon').element.innerHTML = this.get('pedestriansCount');
-    console.log(this.get('icon').element);
+  updateCounts: Ember.observer('spotsCount', 'pedestriansCount', function() {
+    let pedestriansCount = this.get('pedestriansCount');
+    let spotsCount = this.get('spotsCount');
+    this.get('icon').element.innerHTML = `${pedestriansCount}/${spotsCount}`;
   }),
 
   didCreateLayer() {
