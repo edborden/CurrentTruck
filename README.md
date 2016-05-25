@@ -1,7 +1,6 @@
-# Current-truck
+# GoGoKart
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+Application that monitors real-time foot traffic and parking availability in parks, then routes food trucks/vendors toward underserved areas. It also incorporates demographic and historical performance for future recommendations and back-office reporting.
 
 ## Prerequisites
 
@@ -25,15 +24,6 @@ You will need the following things properly installed on your computer.
 * `ember server`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
-
-### Running Tests
-
-* `ember test`
-* `ember test --server`
-
 ### Building
 
 * `ember build` (development)
@@ -41,13 +31,4 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Deploying
 
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](http://emberjs.com/)
-* [ember-cli](http://ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
-
+Good example in circle.yml and firebase.json of a CI workflow for EmberJS using CircleCI and Firebase for hosting.
