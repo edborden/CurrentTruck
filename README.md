@@ -2,6 +2,11 @@
 
 Application that monitors real-time foot traffic and parking availability in parks, then routes food trucks/vendors toward underserved areas. It also incorporates demographic and historical performance for future recommendations and back-office reporting.
 
+Consists of:
+* Ember frontend in /app
+* Scriptr.io scripts in /scripts
+* Utility runners for integration with GE Predix in /ge
+
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
